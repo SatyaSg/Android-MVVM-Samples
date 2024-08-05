@@ -3,11 +3,11 @@ package com.example.viewmodelapp
 
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
-    var counter: Int = 10
+class MainViewModel(val initialValue : Int) : ViewModel() {
+    var counter: Int = initialValue
 
     fun increment() {
-        counter++;
+        counter++
     }
 
 }
