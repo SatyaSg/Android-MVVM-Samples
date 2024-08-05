@@ -17,23 +17,23 @@ import com.google.android.material.textfield.TextInputLayout.LengthCounter
 
 class MainActivity : AppCompatActivity() {
 
-    var counter: Int = 10;
     lateinit var txtCounter: TextView
-
+    lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         txtCounter = findViewById(R.id.textview_first)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         setText()
     }
 
     private fun setText() {
-        txtCounter.setText(counter.toString())
+        txtCounter.setText(mainViewModel.counter.toString())
     }
 
     fun increment(v: View) {
-        counter++;
+        mainViewModel.increment()
         setText()
     }
 
